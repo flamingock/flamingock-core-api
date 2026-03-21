@@ -14,10 +14,12 @@ repositories {
     mavenCentral()
 }
 
+val templateApiVersion = "1.3.1"
+val generalUtilVersion = "1.5.0"
 val jacksonVersion = "2.16.0"
 dependencies {
-    api("io.flamingock:flamingock-template-api:1.3.0")
-    api("io.flamingock:flamingock-general-util:1.5.0")
+    api("io.flamingock:flamingock-template-api:$templateApiVersion")
+    api("io.flamingock:flamingock-general-util:$generalUtilVersion")
     api("jakarta.annotation:jakarta.annotation-api:2.1.1")
     implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
     implementation("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
