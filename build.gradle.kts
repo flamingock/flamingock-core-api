@@ -1,3 +1,6 @@
+import io.flamingock.build.VersionManager
+import io.flamingock.build.PrintVersionTask
+
 plugins {
     `java-library`
     `maven-publish`
@@ -7,19 +10,20 @@ plugins {
 
 
 group = "io.flamingock"
-version = "1.3.0-SNAPSHOT"
+val declaredVersion = "1.3.0-SNAPSHOT"
+version = VersionManager.resolveVersion(declaredVersion, project.hasProperty("release"))
 
 repositories {
     mavenLocal()
     mavenCentral()
 }
 
-val templateApiVersion = "1.3.1"
-val generalUtilVersion = "1.5.0"
+val templateApiVersion = "1.3.2"
+val generalUtilVersion = "1.5.1"
 val jacksonVersion = "2.16.0"
 dependencies {
-    api("io.flamingock:flamingock-template-api:$templateApiVersion")
     api("io.flamingock:flamingock-general-util:$generalUtilVersion")
+    api("io.flamingock:flamingock-template-api:$templateApiVersion")
     api("jakarta.annotation:jakarta.annotation-api:2.1.1")
     implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
     implementation("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
@@ -247,3 +251,5 @@ tasks.register("createStagingDeployFolder") {
 tasks.matching { it.name == "publish" }.configureEach {
     finalizedBy("createStagingDeployFolder")
 }
+
+tasks.register<PrintVersionTask>("printVersion")
