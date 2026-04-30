@@ -18,8 +18,8 @@ repositories {
     mavenCentral()
 }
 
-val templateApiVersion = "1.3.2"
-val generalUtilVersion = "1.5.1"
+val templateApiVersion = "1.3.3"
+val generalUtilVersion = "1.5.3"
 val jacksonVersion = "2.16.0"
 dependencies {
     api("io.flamingock:flamingock-general-util:$generalUtilVersion")
