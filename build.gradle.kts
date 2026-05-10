@@ -10,7 +10,7 @@ plugins {
 
 
 group = "io.flamingock"
-val declaredVersion = "1.3.2-SNAPSHOT"
+val declaredVersion = "1.3.3-SNAPSHOT"
 version = VersionManager.resolveVersion(declaredVersion, project.hasProperty("release"))
 
 repositories {
@@ -18,7 +18,7 @@ repositories {
     mavenCentral()
 }
 
-val templateApiVersion = "1.3.3"
+val templateApiVersion = "1.3.4"
 val generalUtilVersion = "1.5.3"
 val jacksonVersion = "2.16.0"
 dependencies {
