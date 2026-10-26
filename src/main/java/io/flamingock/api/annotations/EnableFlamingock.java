@@ -43,8 +43,6 @@ import java.lang.annotation.Target;
  * <pre>
  * &#64;EnableFlamingock(
  *     stages = {
- *         &#64;Stage(type = StageType.SYSTEM, location = "com.example.system"),
- *         &#64;Stage(type = StageType.LEGACY, location = "com.example.init"),
  *         &#64;Stage(location = "com.example.migrations")
  *     }
  * )
@@ -57,8 +55,7 @@ import java.lang.annotation.Target;
  * <ul>
  *     <li>Either {@link #configFile()} OR {@link #stages()} must be specified (mutually exclusive)</li>
  *     <li>At least one configuration mode must be provided</li>
- *     <li>Maximum of 1 stage with type {@code StageType.SYSTEM} is allowed</li>
- *     <li>Maximum of 1 stage with type {@code StageType.LEGACY} is allowed</li>
+ *     <li>System and legacy stages are generated internally by Flamingock</li>
  * </ul>
  *
  * @since 1.0
@@ -76,19 +73,16 @@ public @interface EnableFlamingock {
      * <p>Mutually exclusive with {@link #configFile()}. When using stages,
      * do not specify a pipeline file.
      *
-     * <p>Stage type restrictions:
+     * <p>Stage restrictions:
      * <ul>
-     *   <li>Maximum of 1 stage with type {@code StageType.SYSTEM} is allowed</li>
-     *   <li>Maximum of 1 stage with type {@code StageType.LEGACY} is allowed</li>
-     *   <li>Unlimited stages with type {@code StageType.DEFAULT} are allowed</li>
+     *   <li>User-declared stages are standard Flamingock stages</li>
+     *   <li>System and legacy stages are generated internally by Flamingock</li>
      * </ul>
      *
      * <p>Example:
      * <pre>
      * stages = {
-     *     &#64;Stage(type = StageType.SYSTEM, location = "com.example.system"),
-     *     &#64;Stage(type = StageType.LEGACY, location = "com.example.init"),
-     *     &#64;Stage(type = StageType.DEFAULT, location = "com.example.changes")
+     *     &#64;Stage(location = "com.example.changes")
      * }
      * </pre>
      *

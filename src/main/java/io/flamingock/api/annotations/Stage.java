@@ -15,6 +15,8 @@
  */
 package io.flamingock.api.annotations;
 
+import io.flamingock.api.StageMode;
+
 public @interface Stage {
     /**
      * Specifies the location where changes are found. This field is mandatory.
@@ -48,5 +50,12 @@ public @interface Stage {
     String name() default "";
     
     String description() default "";
+
+    /**
+     * Repeatability policy for the stage.
+     *
+     * @return the stage execution mode
+     */
+    StageMode mode() default StageMode.STANDARD;
 
 }
