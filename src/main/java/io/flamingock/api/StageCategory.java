@@ -15,30 +15,30 @@
  */
 package io.flamingock.api;
 
-public enum StageType {
+public enum StageCategory {
     DEFAULT,
     LEGACY("legacy"),
     SYSTEM("importer");
 
     private final String alias;
 
-    StageType(String alias) {
+    StageCategory(String alias) {
         this.alias = alias;
     }
 
-    StageType() {
+    StageCategory() {
         this.alias = null;
     }
 
-    public static StageType from(String name) {
+    public static StageCategory from(String name) {
         if (name == null || name.isEmpty()) {
             return DEFAULT;
         }
-        for (StageType stageType : StageType.values()) {
-            if (name.equals(stageType.alias)) {
-                return stageType;
+        for (StageCategory stageCategory : StageCategory.values()) {
+            if (name.equals(stageCategory.alias)) {
+                return stageCategory;
             }
         }
-        throw new IllegalArgumentException("No such stage type: " + name);
+        throw new IllegalArgumentException("No such stage category: " + name);
     }
 }
