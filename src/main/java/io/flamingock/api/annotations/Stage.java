@@ -15,7 +15,7 @@
  */
 package io.flamingock.api.annotations;
 
-import io.flamingock.api.StageMode;
+import io.flamingock.api.StageType;
 
 public @interface Stage {
     /**
@@ -54,8 +54,8 @@ public @interface Stage {
     /**
      * Repeatability policy for the stage.
      *
-     * @return the stage execution mode
+     * @return the stage execution type
      */
-    StageMode mode() default StageMode.STANDARD;
+    StageType type() default StageType.STANDARD;
 
 }

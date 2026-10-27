@@ -15,19 +15,19 @@
  */
 package io.flamingock.api;
 
-public enum StageMode {
+public enum StageType {
     STANDARD,
     RUN_ALWAYS;
 
-    public static StageMode from(String name) {
+    public static StageType from(String name) {
         if (name == null || name.isEmpty()) {
             return STANDARD;
         }
-        for (StageMode stageMode : StageMode.values()) {
-            if (name.equals(stageMode.name())) {
-                return stageMode;
+        for (StageType stageType : StageType.values()) {
+            if (name.equals(stageType.name())) {
+                return stageType;
             }
         }
-        throw new IllegalArgumentException("No such stage mode: " + name);
+        throw new IllegalArgumentException("No such stage type: " + name);
     }
 }
